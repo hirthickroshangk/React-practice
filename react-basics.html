@@ -17,15 +17,17 @@
       
       const container = document.querySelector('.js-container');
       const root = ReactDOM.createRoot(container);
-      const totalCost = 1 + 8 * 2;
-      console.log(totalCost);
+      const productCost = 500;
+      const shippingCost = 40;
+
       setInterval(() => {
         const div = (
         <div>
-          <p>Table Fan 2300rpm</p>
-          <p>Price : 450rs</p>
-          <button>Click to Buy</button>
-          <p>Total Cost: Rs{totalCost}</p>
+          <p>Product Cost: {productCost}</p>
+          <p>Shipping Cost: {shippingCost}</p>
+          <p>Total Cost: {productCost + shippingCost}</p>
+          <button>Place Your Order</button>
+          
           <p>CURRENT TIME</p>
           <p>{dayjs().format('YYYY- MMMM DD -dddd')}</p>
           <p>{dayjs().format('HH- mm -ss')}</p>
