@@ -47,32 +47,47 @@
           {sender === 'user' && (
             <img src= 'user.png' width = "40" />
           )}
-        </div>     
+        </div>      
         
       );
       }
 
-      const app = (
-        <>
-          <ChatInput />
-          <ChatMessage message="hello!!" sender = "user"/>
-          <ChatMessage message="Hello how may i help you?" sender = "robot" />
-          <ChatMessage message="can you get me todays date" sender = "user" />
-          <ChatMessage message="Today's date is september 20 2025" sender = "robot" />
-          <ChatMessage message="how about flip a coin" sender = "user" />
-          <ChatMessage message="Sure!! you got heads" sender = "robot" />
+      function App() {
+        return (
+          <>
+            <ChatInput />
+            <ChatMessage 
+              message="hello!!" 
+              sender = "user"
+            />
+            <ChatMessage 
+              message="Hello how may i help you?" 
+              sender = "robot" 
+            />
+            <ChatMessage 
+              message="can you get me todays date" 
+              sender = "user" 
+            />
+            <ChatMessage 
+              message="Today's date is september 20 2025" 
+              sender = "robot" 
+            />
+            <ChatMessage 
+              message="how about flip a coin" 
+              sender = "user" 
+            />
+            <ChatMessage 
+              message="Sure!! you got heads" 
+              sender = "robot" 
+            />
+          </>
 
-
-
-        </>
-      );
-
-
-
-
+        );
+      }
+      
       const conatiner = document.querySelector('.js-container');
       const root = ReactDOM.createRoot(conatiner);
-      root.render(app);
+      root.render(<App />);
 
     </script>
     
