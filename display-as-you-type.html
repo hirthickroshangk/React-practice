@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Display as you type</title>
+  </head>
+  <body>
+    <div class="react-container"></div>
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <script src="https://unpkg.com/supersimpledev/chatbot.js"></script>
+    
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+
+    <script type="text/babel">
+
+      function App() {
+        const [text, setText] = React.useState('');
+        
+        function showText(event) {
+          setText(event.target.value);  
+        }
+        
+        function resetText() {
+          setText('');
+        }
+
+        function addExample() {
+          setText('Hirthick');
+        }
+        return (
+          <>
+          <input 
+          onChange={showText}
+          placeholder="Type Your Name Here!!" 
+          value={text}
+          />
+
+          <button onClick={resetText}>
+            Reset
+          </button>
+
+          <button onClick={addExample}>
+            Example
+          </button>
+          <p>Hello {text}</p>
+          </>
+        );
+
+
+      }
+      const container = document.querySelector('.react-container');
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+
+  </body>
+</html>
