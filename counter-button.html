@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Basic Counter Button</title>
+  </head>
+  <body>
+    <div class="react-container"></div>
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <script src="https://unpkg.com/supersimpledev/chatbot.js"></script>
+    
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+
+    <script type="text/babel">
+
+      function ResetButton({setClickCount}) {
+        function resetCount() {
+          setClickCount(0);
+          console.log('Click Count Reset Successfully!!')
+        }
+        return (
+          <button onClick={resetCount}>Reset</button>
+        );
+      }
+
+      function Counter({clickCount, setClickCount}) {
+        
+        function updateClickCount() {
+          setClickCount(clickCount + 1);
+        }
+        return (
+          <>
+            <button onClick={updateClickCount}>{clickCount === 1 ? "Clicked for the first time" : "Clicked " + clickCount + " times" } </button>
+          </>
+        );
+      }
+
+      function App() {
+        const [clickCount, setClickCount] = React.useState(0);
+        return (
+        <>
+          <Counter 
+          clickCount= {clickCount}
+          setClickCount= {setClickCount}  
+          />
+          <Counter 
+          clickCount= {clickCount}
+          setClickCount= {setClickCount}
+          />
+          <ResetButton 
+          setClickCount={setClickCount}
+          />
+        </>  
+        )
+      }
+
+
+      const container = document.querySelector('.react-container');
+      const root = ReactDOM.createRoot(container);
+      root.render(<App />)  
+
+    </script>
+    
+
+    
+  </body>
+</html>
